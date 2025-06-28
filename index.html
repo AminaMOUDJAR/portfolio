@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Amina Moudjar - Portfolio</title>
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 text-gray-800">
+    <div id="root"></div>
+    <script type="text/babel">
+        const App = () => {
+            const [activeTab, setActiveTab] = React.useState('about');
+
+            return (
+                <div className="min-h-screen bg-gray-50 text-gray-800">
+                    {/* Header */}
+                    <header className="bg-white shadow-md sticky top-0 z-10">
+                        <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+                            <h1 className="text-2xl font-bold text-indigo-600">Amina Moudjar</h1>
+                            <nav className="space-x-4 hidden md:flex">
+                                <button onClick={() => setActiveTab('about')} className={`py-2 px-3 rounded-md ${activeTab === 'about' ? 'bg-indigo-100 text-indigo-700' : 'hover:bg-gray-100'}`}>About</button>
+                                <button onClick={() => setActiveTab('experience')} className={`py-2 px-3 rounded-md ${activeTab === 'experience' ? 'bg-indigo-100 text-indigo-700' : 'hover:bg-gray-100'}`}>Experience</button>
+                                <button onClick={() => setActiveTab('projects')} className={`py-2 px-3 rounded-md ${activeTab === 'projects' ? 'bg-indigo-100 text-indigo-700' : 'hover:bg-gray-100'}`}>Projects</button>
+                                <button onClick={() => setActiveTab('skills')} className={`py-2 px-3 rounded-md ${activeTab === 'skills' ? 'bg-indigo-100 text-indigo-700' : 'hover:bg-gray-100'}`}>Skills</button>
+                            </nav>
+                        </div>
+                    </header>
+
+                    {/* Mobile Navigation */}
+                    <div className="md:hidden bg-white border-t border-b border-gray-200">
+                        <div className="flex justify-around">
+                            <button onClick={() => setActiveTab('about')} className={`py-3 flex-1 text-center ${activeTab === 'about' ? 'text-indigo-600 border-b-2 border-indigo-600' : ''}`}>About</button>
+                            <button onClick={() => setActiveTab('experience')} className={`py-3 flex-1 text-center ${activeTab === 'experience' ? 'text-indigo-600 border-b-2 border-indigo-600' : ''}`}>Experience</button>
+                            <button onClick={() => setActiveTab('projects')} className={`py-3 flex-1 text-center ${activeTab === 'projects' ? 'text-indigo-600 border-b-2 border-indigo-600' : ''}`}>Projects</button>
+                            <button onClick={() => setActiveTab('skills')} className={`py-3 flex-1 text-center ${activeTab === 'skills' ? 'text-indigo-600 border-b-2 border-indigo-600' : ''}`}>Skills</button>
+                        </div>
+                    </div>
+
+                    <main className="container mx-auto px-4 py-8">
+                        {/* About Section */}
+                        {activeTab === 'about' && (
+                            <section className="animate-fadeIn">
+                                <div className="max-w-3xl mx-auto text-center mb-12">
+                                    <h2 className="text-3xl font-bold mb-4 text-gray-900">Junior Artificial Intelligence Engineer</h2>
+                                    <p className="text-lg mb-6 text-gray-600">
+                                        Seeking a challenging PhD position in Artificial Intelligence to leverage expertise in Generative AI, NLP, Machine Learning, and Software Engineering.
+                                    </p>
+                                    <div className="flex flex-wrap justify-center gap-4 text-sm text-gray-600">
+                                        <span>amina.moudjar01@gmail.com</span>
+                                        <span>Khemis Miliana, Ain Defla - Algeria</span>
+                                        <span>+213 675470223</span>
+                                    </div>
+                                </div>
+                                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="font-semibold text-xl mb-4 text-indigo-600">Languages</h3>
+                                        <ul className="space-y-2">
+                                            <li className="flex justify-between"><span>Arabic</span><span>Native</span></li>
+                                            <li className="flex justify-between"><span>English</span><span>Proficient</span></li>
+                                            <li className="flex justify-between"><span>French</span><span>Intermediate</span></li>
+                                            <li className="flex justify-between"><span>German</span><span>Learning</span></li>
+                                        </ul>
+                                    </div>
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="font-semibold text-xl mb-4 text-indigo-600">Education</h3>
+                                        <ul className="space-y-3">
+                                            <li>
+                                                <h4 className="font-medium">Master's Degree</h4>
+                                                <p className="text-sm text-gray-600">Software Engineering and Distributed Systems</p>
+                                                <p className="text-xs text-gray-500">University Djilali Bounaama of Khemis Miliana (2022-2024)</p>
+                                            </li>
+                                            <li>
+                                                <h4 className="font-medium">Bachelor’s Degree</h4>
+                                                <p className="text-sm text-gray-600">Computer Science</p>
+                                                <p className="text-xs text-gray-500">University Djilali Bounaama of Khemis Miliana (2019-2022)</p>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="font-semibold text-xl mb-4 text-indigo-600">Interests</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["Machine Learning Research", "Open Source Contributions", "Tech Communities", "History and Geopolitics"].map((interest, i) => (
+                                                <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">{interest}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Experience Section */}
+                        {activeTab === 'experience' && (
+                            <section className="animate-fadeIn">
+                                <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Professional Experience</h2>
+                                <div className="space-y-6">
+                                    {/* PrevAI Health LLC */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <div className="flex flex-col md:flex-row justify-between">
+                                            <h3 className="text-xl font-semibold">Machine Learning Intern</h3>
+                                            <span className="text-gray-500 mt-1 md:mt-0">June 2025 - Now | Remote (United States)</span>
+                                        </div>
+                                        <h4 className="text-gray-600 italic">PrevAI Health LLC</h4>
+                                        <ul className="mt-3 space-y-2 text-gray-700 list-disc pl-5">
+                                            <li>Developing and implementing AI models for healthcare applications as part of the ML team building personalized health solutions.</li>
+                                            <li>Working with large datasets to train and optimize algorithms, contributing to predictive analytics and AI-driven diagnostics.</li>
+                                            <li>Participating in model deployment, performance monitoring, and feature engineering to enhance system accuracy and scalability.</li>
+                                            <li>Gaining hands-on experience in applying AI to preventive medicine, focusing on early risk detection and health insights.</li>
+                                        </ul>
+                                    </div>
+                                    {/* Fellowship.AI */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <div className="flex flex-col md:flex-row justify-between">
+                                            <h3 className="text-xl font-semibold">ML Engineering Fellow</h3>
+                                            <span className="text-gray-500 mt-1 md:mt-0">April 2025 - June 2025 | Remote</span>
+                                        </div>
+                                        <h4 className="text-gray-600 italic">Fellowship.AI</h4>
+                                        <ul className="mt-3 space-y-2 text-gray-700 list-disc pl-5">
+                                            <li>Working with a team on a Multi-Agent Clinical Scribe project, aiming at transforming clinical documentation by combining real-time voice capture, multi-agent orchestration, and large language models to support the creation of accurate, structured, and context-aware medical notes.</li>
+                                            <li>Personally responsible for Model Evaluation, coordinating with my team and implementing robust evaluation frameworks to assess the performance of our language models across various clinical scenarios.</li>
+                                            <li>This involved designing metrics to measure accuracy, efficiency, and contextual understanding.</li>
+                                        </ul>
+                                    </div>
+                                    {/* CERIST */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <div className="flex flex-col md:flex-row justify-between">
+                                            <h3 className="text-xl font-semibold">AI Research Intern</h3>
+                                            <span className="text-gray-500 mt-1 md:mt-0">January 2024 - June 2024 | Algiers</span>
+                                        </div>
+                                        <h4 className="text-gray-600 italic">CERIST</h4>
+                                        <ul className="mt-3 space-y-2 text-gray-700 list-disc pl-5">
+                                            <li>Worked on applying parameter-efficient fine-tuning techniques on existing pretrained LLMs (NLLB200 and AraT5) for translation tasks.</li>
+                                            <li>Achieved a balance between computational efficiency and translation quality.</li>
+                                            <li>Trained fewer parameters (around 0.20%-0.30%), achieving less GPU power usage, less memory allocation, and lower temperatures using LoRA variations (DoRA, QLoRA, and QDoRA) compared to full fine-tuning.</li>
+                                            <li>GPU general usage lowered from 80% in NLLB full fine-tuning to 30% in NLLB using LoRA, and from 70% in AraT5 full fine-tuning to 30% in AraT5 using DoRA.</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Projects Section */}
+                        {activeTab === 'projects' && (
+                            <section className="animate-fadeIn">
+                                <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Projects & Achievements</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* Lane Detection Project */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 h-full">
+                                        <h3 className="text-xl font-semibold mb-2">Lane Detection in Autonomous Driving Cars</h3>
+                                        <p className="text-gray-600 mb-4">Tools: PyTorch, Scikit-Learn</p>
+                                        <p className="text-gray-700">
+                                            Worked along with my team from School of AI club (from ESI Algiers) during RSC (Research Summer Camp) on a lane detection project.
+                                            We used ResNet-50 as the backbone with the CULane dataset, enhanced by data augmentation and a fully connected neural network regressor to output lane coordinates.
+                                        </p>
+                                    </div>
+                                    {/* Brainthon Competition Winner */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 h-full">
+                                        <h3 className="text-xl font-semibold mb-2">1st Place in Brainthon Competition</h3>
+                                        <p className="text-gray-600 mb-4">CSCC Club, University of Saad Dahleb - Blida (September 2023)</p>
+                                        <p className="text-gray-700">
+                                            Led the AI development of a smart e-learning platform with a recommendation system to personalize content for high school students.
+                                        </p>
+                                    </div>
+                                    {/* Conference Paper */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100 h-full">
+                                        <h3 className="text-xl font-semibold mb-2">Publication</h3>
+                                        <p className="text-gray-600 mb-4">Conference Paper</p>
+                                        <p className="text-gray-700">
+                                            Amina Moudjar et al. (2025). Parameter-Efficient Fine-Tuning for LLM-Based Arabic-to-English Machine Translation. In Second National Conference on Applications of Artificial Intelligence, 16-17 April, University of Boumerdes.
+                                        </p>
+                                    </div>
+                                </div>
+                            </section>
+                        )}
+
+                        {/* Skills Section */}
+                        {activeTab === 'skills' && (
+                            <section className="animate-fadeIn">
+                                <h2 className="text-2xl font-bold mb-6 text-center text-gray-900">Technical Skills</h2>
+                                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                    {/* Programming Languages */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="text-xl font-semibold mb-4 text-indigo-600">Programming Languages</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["Python", "JavaScript", "C/C++", "Java", "Prolog"].map((skill, i) => (
+                                                <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* Databases */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="text-xl font-semibold mb-4 text-indigo-600">Database Systems</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["MySQL", "PostgreSQL", "MongoDB"].map((skill, i) => (
+                                                <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* Data Science & ML Tools */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="text-xl font-semibold mb-4 text-indigo-600">Data Science & ML Tools</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["Matplotlib", "Scipy", "Scikit-Learn", "PyTorch", "Langchain", "CrewAI", "Weights&Biases", "HuggingFace"].map((skill, i) => (
+                                                <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* Web Technologies */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="text-xl font-semibold mb-4 text-indigo-600">Web Technologies</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["React", "Flask", "FastAPI", "Streamlit", "Gradio"].map((skill, i) => (
+                                                <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* Cloud & Version Control */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="text-xl font-semibold mb-4 text-indigo-600">Cloud & Version Control</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["GCP", "BigQuery", "Git"].map((skill, i) => (
+                                                <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    {/* Academic Tools */}
+                                    <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-100">
+                                        <h3 className="text-xl font-semibold mb-4 text-indigo-600">Academic Tools</h3>
+                                        <div className="flex flex-wrap gap-2">
+                                            {["Perplexity AI Research", "LaTeX"].map((skill, i) => (
+                                                <span key={i} className="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">{skill}</span>
+                                            ))}
+                                        </div>
+                                    </div>
+                                </div>
+                            </section>
+                        )}
+                    </main>
+
+                    {/* Footer */}
+                    <footer className="bg-white border-t border-gray-200 py-6">
+                        <div className="container mx-auto px-4 text-center text-gray-600">
+                            <p>&copy; {new Date().getFullYear()} Amina Moudjar. Built with React & TailwindCSS.</p>
+                            <p className="mt-2 text-sm">Deployed as GitHub Pages Portfolio</p>
+                        </div>
+                    </footer>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
